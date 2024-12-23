@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artificial Intelligence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        li a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            bottom: 0;
+            width: 100%;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        .progress-bar {
+            height: 20px;
+            border-radius: 10px;
+            background-color: #3498db;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            font-weight: bold;
+        }
+        .progress-label {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .progress-input {
+            width: 50px;
+            padding: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .update-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .update-btn:hover {
+            background-color: #2980b9;}
+            .total-progress-container {
+            /* width: 100%; */
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 20px 20px;
+            padding: 5px;
+        }
+        .total-progress-bar {
+            height: 30px;
+            border-radius: 10px;
+            background-color: #2ecc71;
+            text-align: center;
+            color: white;
+            line-height: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>خطة تعلم الذكاء الاصطناعي</h1>
+    <div class="total-progress-container">
+        <div id="total-progress-bar" class="total-progress-bar" style="width: 0%;">0%</div>
+    </div>
+</header>
+
+<section>
+
+    <h2>1. تعلم Python</h2>
+    <ul>
+        <li>
+            <a href="https://www.youtube.com/watch?v=zOjov-2OZ0E&t=0s" target="_blank">دورة تعلم Python</a>
+            <p>المدة: 2 ساعة</p>
+            <p>الوقت: 5 أيام</p>
+        </li>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-python" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-python" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('python')">تحديث التقدم</button>
+
+    <h2>2. تعلم LLMs</h2>
+    <ul>
+        <li>
+            <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank">دورة تعلم LLMs</a>
+            <p>المدة: 1 ساعة</p>
+            <p>الوقت: يومين</p>
+        </li>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-llms" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-llms" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('llms')">تحديث التقدم</button>
+
+    <h2>3. تعلم هندسة الـ Prompts</h2>
+    <ul>
+        <li>
+            <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/" target="_blank">دورة هندسة الـ Prompts</a>
+            <p>المدة: 1 ساعة</p>
+            <p>الوقت: يومين</p>
+        </li>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-prompts" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-prompts" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('prompts')">تحديث التقدم</button>
+    
+    <h2>4. تعلم مكتبات Python (11 ساعة - 1 اسبوع)</h2>
+    <ul>
+        <li>Numpy - 1 ساعة</li>
+        <li><a href="https://www.youtube.com/watch?v=rkGtNC4yMR4&list=PLuRv1IekA3YVwzaWa2Kp7bgIVcJsJ5XGW" target="_blank">Pandas - 5 ساعات</a></li>
+        <li><a href="https://www.youtube.com/watch?v=9pot3wR0UKY&list=PLuRv1IekA3YUdhJNrsn-nK71yvTc45OlW" target="_blank">Matplotlib - 3 ساعات</a></li>
+        <li><a href="https://youtu.be/0B5eIE_1vpU?si=U4aBB2XKcnt4NPUB" target="_blank">Scikit-learn - 2 ساعات</a></li>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-npy" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-npy" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('npy')">تحديث التقدم</button>
+    
+    <h2>5. تعلم الرياضيات (للذكاء الاصطناعي)</h2>
+    <ul>
+        <li><a href="https://www.coursera.org/specializations/mathematics-machine-learning" target="_blank">دورة الرياضيات للذكاء الاصطناعي على كورسيرا</a></li>
+        <p>المدة: 55 ساعة</p>
+        <p>الوقت: 1 شهر</p>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-math" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-math" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('math')">تحديث التقدم</button>
+    
+    <h2>6. تعلم الإحصاء</h2>
+    <ul>
+        <li><a href="https://www.coursera.org/learn/stanford-statistics#modules" target="_blank">دورة الإحصاء على كورسيرا</a></li>
+        <p>المدة: 13 ساعة</p>
+        <p>الوقت: 1 أسبوع</p>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-stc" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-stc" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('stc')">تحديث التقدم</button>
+    
+    <h2>7. تعلم الآلة</h2>
+    <ul>
+        <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">دورة تعلم الآلة على كورسيرا</a></li>
+        <p>المدة: 100 ساعة</p>
+        <p>الوقت: 2 شهر</p>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-ml" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-ml" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('ml')">تحديث التقدم</button>
+    
+    <h2>8. الخطوة التالية</h2>
+    <ul>
+        <li><a href="https://www.coursera.org/learn/introduction-computer-vision-watson-opencv" target="_blank">دورة الرؤية الحاسوبية (OpenCV)</a> - 21 ساعة</li>
+        <li><a href="https://www.coursera.org/specializations/natural-language-processing" target="_blank">دورة معالجة اللغة الطبيعية (NLP)</a> - 110 ساعة (3 أشهر)</li>
+        <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">دورة تعلم التعلم العميق</a> - 125 ساعة (3 أشهر)</li>
+    </ul>
+
+    <div class="progress-container">
+        <div id="progress-bar-next" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <input type="number" id="progress-input-next" class="progress-input" placeholder="أدخل التقدم %" min="0" max="100">
+    <button class="update-btn" onclick="updateProgress('next')">تحديث التقدم</button>
+    
+</section>
+<footer>
+    <p>&copy; 2025 تعلم الذكاء الاصطناعي</p>
+</footer>
+<script>
+    // أوزان الكورسات
+    const courseWeights = {
+        python: 2,
+        llms: 1,
+        Prompts: 1,
+        npy: 11,
+        math: 55,
+        stc: 13,
+        ml: 100,
+        next: 21
+    };
+
+    // إجمالي الكورسات
+    const totalCourses = Object.keys(courseWeights).length;
+
+    // بيانات التقدم
+    let progressData = {
+        python: 0,
+        llms: 0,
+        Prompts: 0,
+        npy: 0,
+        math: 0,
+        stc: 0,
+        ml: 0,
+        next: 0
+    };
+
+    // استرجاع التقدم من LocalStorage عند تحميل الصفحة
+    window.onload = function() {
+        // التحقق من وجود بيانات التقدم المخزنة
+        for (let course in courseWeights) {
+            let storedProgress = localStorage.getItem(course);
+            if (storedProgress !== null) {
+                progressData[course] = parseInt(storedProgress);
+                // تحديث شريط التقدم على الصفحة
+                document.getElementById(`progress-bar-${course}`).style.width = progressData[course] + '%';
+                document.getElementById(`progress-bar-${course}`).innerText = progressData[course] + '%';
+                document.getElementById(`progress-input-${course}`).value = progressData[course];
+            }
+        }
+        // تحديث التقدم الإجمالي بناءً على التقدم المخزن
+        updateTotalProgress();
+    }
+
+    function updateProgress(course) {
+        // الحصول على النسبة المئوية المدخلة
+        let progressInput = document.getElementById(`progress-input-${course}`);
+        let progressValue = parseInt(progressInput.value);
+
+        // التأكد من أن النسبة بين 0 و 100
+        if (progressValue < 0 || progressValue > 100 || isNaN(progressValue)) {
+            alert('الرجاء إدخال قيمة بين 0 و 100');
+            return;
+        }
+
+        // تحديث شريط التقدم للكورس المحدد
+        let progressBar = document.getElementById(`progress-bar-${course}`);
+        progressBar.style.width = progressValue + '%';
+        progressBar.innerText = progressValue + '%';
+
+        // تحديث بيانات التقدم
+        progressData[course] = progressValue;
+
+        // حفظ التقدم في LocalStorage
+        localStorage.setItem(course, progressValue);
+
+        // تحديث التقدم الإجمالي
+        updateTotalProgress();
+    }
+
+    // تحديث التقدم الإجمالي بناءً على التقدم المخزن لكل كورس
+    function updateTotalProgress() {
+        let totalProgress = 0;
+        let totalWeight = 0;
+
+        // حساب التقدم الإجمالي باستخدام الأوزان
+        for (let course in progressData) {
+            totalProgress += (progressData[course] * courseWeights[course]);
+            totalWeight += courseWeights[course];
+        }
+
+        let overallProgress = totalProgress / totalWeight;
+
+        // تحديث شريط التقدم الإجمالي
+        let totalProgressBar = document.getElementById('total-progress-bar');
+        totalProgressBar.style.width = overallProgress + '%';
+        totalProgressBar.innerText = Math.round(overallProgress) + '%';
+    }
+</script>
+</body>
+</html>
